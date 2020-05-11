@@ -18,16 +18,19 @@ let urlencodedParser = bodyParser.urlencoded({
 });
 
 // synchronous hashing and salting
-let userPassword;
-let salt = bcrypt.genSaltSync(10);
-let hash = bcrypt.hashSync(userPassword, salt);
+try {
+  let userPassword;
+  let salt = bcrypt.genSaltSync(10);
+  let hash = bcrypt.hashSync(userPassword, salt);
 
-console.log(salt);
-console.log(hash);
+  console.log(salt);
+  console.log(hash);
 
-console.log(bcrypt.compareSync(userPassword, hash));
-console.log(bcrypt.compareSync("paSsW0rd", hash));
-
+  console.log(bcrypt.compareSync(userPassword, hash));
+  console.log(bcrypt.compareSync("paSsW0rd", hash));
+} catch (err) {
+  console.log("There is an error");
+}
 //authorization - unfinished
 
 //cookies - unfinished
