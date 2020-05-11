@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    form(id='form', method='post', action='/createLogin')
+        label(for='username') Username:
+        input(type='text', name='username')
+        br
+        label(for='password') Password:
+        input(type='text', name='password')
+        br
+        label(for='email') Email:
+        input(type='text', name='email')
+        br
+        label(for='age') Age:
+        input(type='text', name='age')
+        br
+        label(for='firstQuestion') 'First Question Here':
+        input(type='text', name='firstQuestion')
+        br
+        label(for='secondQuestion') 'Second Question Here':
+        input(type='text', name='secondQuestion')
+        br
+        label(for='thirdQuestion') 'Third Question Here'
+        input(type='text', name='thirdQuestion')
+        br
+        input(type='submit', value='Create Username Login')

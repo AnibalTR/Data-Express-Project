@@ -24,4 +24,34 @@ let personSchema = mongoose.Schema({
 
 let Person = mongoose.model("User_Information", personSchema);
 
-// exports.index
+exports.index = (req, res) => {
+  Person.find((err, person) => {
+    if (err) return console.error(err);
+    res.render("index", {
+      title: "Index page",
+      people: person,
+    });
+  });
+};
+
+exports.login = (req, res) => {};
+
+exports.createLogin = (req, res) => {
+  res.render("createLogin", {
+    title: "Create Username Login",
+  });
+};
+//might be the same as above?
+exports.createPerson = (req, res) => {
+  let person = new Person({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+    age: req.body.age,
+  });
+  person.save((err, person) => {
+    if (err) return console.error(err);
+    console.log(req.body.name + " added");
+  });
+  res.redirect("/");
+};
