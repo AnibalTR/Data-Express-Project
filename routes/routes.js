@@ -34,7 +34,11 @@ exports.index = (req, res) => {
   });
 };
 
-exports.login = (req, res) => {};
+exports.login = (req, res) => {
+  res.render("login", {
+    title: "Login Page",
+  });
+};
 
 exports.createLogin = (req, res) => {
   res.render("createLogin", {
