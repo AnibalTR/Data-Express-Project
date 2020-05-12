@@ -70,7 +70,7 @@ exports.createPerson = (req, res) => {
     if (err) return console.error(err);
     console.log(req.body.name + " added");
   });
-  res.redirect("/");
+  res.redirect("/signupComplete");
 };
 
 ////////

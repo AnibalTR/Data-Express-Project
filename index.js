@@ -40,6 +40,7 @@ app.use(cookieParser("This is my cookie passphrase"));
 app.get("/", routes.index);
 app.get("/createLogin", routes.createLogin);
 app.get("/login", routes.login);
+app.get("/signupComplete", routes.signupComplete);
 app.post("/signupComplete", urlencodedParser, routes.createPerson);
 app.post("/loggedIn", routes.loggedIn);
 
