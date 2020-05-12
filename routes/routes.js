@@ -45,6 +45,19 @@ exports.createLogin = (req, res) => {
     title: "Create Username Login",
   });
 };
+
+exports.loggedIn = (req, res) => {
+  res.render("loggedIn", {
+    title: "Logged In",
+  });
+};
+
+exports.signupComplete = (req, res) => {
+  res.render("signupComplete", {
+    title: "Sign Up Complete",
+  });
+};
+
 //might be the same as above?
 exports.createPerson = (req, res) => {
   let person = new Person({
@@ -59,3 +72,5 @@ exports.createPerson = (req, res) => {
   });
   res.redirect("/");
 };
+
+////////

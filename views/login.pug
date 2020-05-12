@@ -1,13 +1,13 @@
 extends layout
 
 block content
-    form(method='post' action='/login')
+    form(method='post' action='/loggedIn')
         label(for='username') Username ('user' is the testing passoword i believe):
         br
         input(name='username')
         p
         label(for='password') Password ('pass' ??):
         br
-        input(name='passowrd' type='password')
+        input(name='password' type='password')
         p
         input(type='submit' value='Submit')
