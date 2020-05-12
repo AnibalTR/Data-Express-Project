@@ -38,8 +38,8 @@ app.use(cookieParser("This is my cookie passphrase"));
 
 //
 app.get("/", routes.index);
-app.get("/", routes.createLogin);
-app.get("/", routes.login);
+app.get("/createLogin", routes.createLogin);
+app.get("/login", routes.login);
 //~~~~~~app.get('/', routes.loggedIn)
 
 app.listen(3000);
