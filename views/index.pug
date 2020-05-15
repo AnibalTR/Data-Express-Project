@@ -5,3 +5,22 @@ block content
     a(href='/createLogin') Create Login
     br
     a(href='/login') Login
+
+    table(class='gridtable')
+        tr
+            th Id
+                th Username
+                th Age
+                th Email
+                th
+                th
+        each item in people
+            tr
+                td #{item.id}
+                td #{item.username}
+                td #{item.age}
+                td #{item.email}
+                td
+                    a(href='/edit/' + item.id) Edit
+                td
+                    a(href='/delete/' + item.id) Delete
