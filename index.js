@@ -43,5 +43,8 @@ app.get("/login", routes.login);
 app.get("/signupComplete", routes.signupComplete);
 app.post("/signupComplete", urlencodedParser, routes.createPerson);
 app.post("/loggedIn", routes.loggedIn);
+app.get('/edit/:id', routes.edit);
+app.post('/edit/:id', urlencodedParser, routes.editPerson);
+app.get('/delete/:id', routes.delete);
 
 app.listen(3000);

@@ -58,7 +58,39 @@ exports.signupComplete = (req, res) => {
   });
 };
 
+exports.delete = (req, res) => {
+  Person.findByIdAndRemove(req.params.id, (err, person) => {
+    if(err) return console.error(err);
+    res.redirect('/');
+  });
+};
+
 //might be the same as above?
+exports.edit = (req, res) => {
+  Person.findById(req.params.id, (err, person) => {
+    if(err) return console.error(err);
+    res.render('edit', {
+      title: 'Edit Person',
+      person
+    });
+  });
+};
+
+exports.editPerson = (req, res) => {
+  Person.findById(req.params.id, (err, person) => {
+    if(err) return console.error(err);
+    person.username = req.body.username;
+    person.password = req.body.password;
+    person.age = req.body.age;
+    person.email = req.body.email;
+    person.save((err, person) => {
+      if(err) return console.error(err);
+      console.log(req.body.name + ' updated');
+    });
+  });
+  res.redirect('/');
+};
+
 exports.createPerson = (req, res) => {
   let person = new Person({
     username: req.body.username,
