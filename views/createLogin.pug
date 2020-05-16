@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    form(id='form', method='post', action='/signupComplete')
+    form(id='form', method='post', action='/signupCompleted')
         label(for='username') Username:
         input(type='text', name='username')
         br
@@ -14,13 +14,13 @@ block content
         label(for='age') Age:
         input(type='text', name='age')
         br
-        label(for='firstQuestion') 'First Question Here':
+        label(for='firstQuestion') Question 1 - What is your favorite video game?
         input(type='text', name='firstQuestion')
         br
-        label(for='secondQuestion') 'Second Question Here':
+        label(for='secondQuestion') Question 2 - What was the name of your first pet?
         input(type='text', name='secondQuestion')
         br
-        label(for='thirdQuestion') 'Third Question Here' :
+        label(for='thirdQuestion') Question 3 - What is your mother's maiden name?
         input(type='text', name='thirdQuestion')
         br
         input(type='submit', value='Create Username Login')

@@ -28,7 +28,7 @@ exports.index = (req, res) => {
   Person.find((err, person) => {
     if (err) return console.error(err);
     res.render("index", {
-      title: "Index page",
+      title: "Home page",
       people: person,
     });
   });
@@ -60,35 +60,37 @@ exports.signupComplete = (req, res) => {
 
 exports.delete = (req, res) => {
   Person.findByIdAndRemove(req.params.id, (err, person) => {
-    if(err) return console.error(err);
-    res.redirect('/');
+    if (err) return console.error(err);
+    res.redirect("/");
   });
 };
 
-//might be the same as above?
 exports.edit = (req, res) => {
   Person.findById(req.params.id, (err, person) => {
-    if(err) return console.error(err);
-    res.render('edit', {
-      title: 'Edit Person',
-      person
+    if (err) return console.error(err);
+    res.render("edit", {
+      title: "Edit Person",
+      person,
     });
   });
 };
 
 exports.editPerson = (req, res) => {
   Person.findById(req.params.id, (err, person) => {
-    if(err) return console.error(err);
+    if (err) return console.error(err);
     person.username = req.body.username;
     person.password = req.body.password;
     person.age = req.body.age;
     person.email = req.body.email;
+    person.firstQuestion = req.body.firstQuestion;
+    person.secondQuestion = req.body.secondQuestion;
+    person.thirdQuestion = req.body.thirdQuestion;
     person.save((err, person) => {
-      if(err) return console.error(err);
-      console.log(req.body.name + ' updated');
+      if (err) return console.error(err);
+      console.log(req.body.name + " updated");
     });
   });
-  res.redirect('/');
+  res.redirect("/");
 };
 
 exports.createPerson = (req, res) => {
@@ -97,6 +99,9 @@ exports.createPerson = (req, res) => {
     password: req.body.password,
     email: req.body.email,
     age: req.body.age,
+    firstQuestion: req.body.firstQuestion,
+    secondQuestion: req.body.secondQuestion,
+    thirdQuestion: req.body.thirdQuestion,
   });
   person.save((err, person) => {
     if (err) return console.error(err);
@@ -105,4 +110,31 @@ exports.createPerson = (req, res) => {
   res.redirect("/signupComplete");
 };
 
-////////
+//new input below - needs to compare to object id? Not sure how to do that..
+exports.checkAuthorization = (req, res) => {
+  if (req.body.username.id == Person.findById()) {
+    req.session.id = {
+      isAuthenticated: true,
+      username: req.body.username,
+    };
+    res.redirect("/loggedIn");
+  } else {
+    res.redirect("/");
+  }
+};
+//
+exports.hashingAndSalting = (req, res) => {
+  try {
+    let userPassword;
+    let salt = bcrypt.genSaltSync(10);
+    let hash = bcrypt.hashSync(userPassword, salt);
+
+    console.log(salt);
+    console.log(hash);
+
+    console.log(bcrypt.compareSync(userPassword, hash));
+    console.log(bcrypt.compareSync("paSsW0rd", hash));
+  } catch (err) {
+    console.log("There is an error");
+  }
+};

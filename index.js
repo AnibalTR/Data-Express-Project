@@ -1,4 +1,3 @@
-//require section
 const bcrypt = require("bcrypt-nodejs"),
   express = require("express"),
   expressSession = require("express-session"),
@@ -8,43 +7,32 @@ const bcrypt = require("bcrypt-nodejs"),
   cookieParser = require("cookie-parser"),
   app = express();
 
-app.set("view engine", "pug");
-app.set("views", __dirname + "/views");
-
-app.use(express.static(path.join(__dirname + "/public")));
-
 let urlencodedParser = bodyParser.urlencoded({
   extended: false,
 });
 
-// synchronous hashing and salting
-try {
-  let userPassword;
-  let salt = bcrypt.genSaltSync(10);
-  let hash = bcrypt.hashSync(userPassword, salt);
-
-  console.log(salt);
-  console.log(hash);
-
-  console.log(bcrypt.compareSync(userPassword, hash));
-  console.log(bcrypt.compareSync("paSsW0rd", hash));
-} catch (err) {
-  console.log("There is an error");
-}
-//authorization - unfinished
-
 //cookies - unfinished
 app.use(cookieParser("This is my cookie passphrase"));
+/////////
 
-//
+app.set("view engine", "pug");
+app.set("views", __dirname + "/views");
+app.use(express.static(path.join(__dirname + "/public")));
+app.use(
+  expressSession({
+    secret: "yoyothisistopsecret",
+    saveUninitialized: true,
+    resave: true,
+  })
+);
 app.get("/", routes.index);
 app.get("/createLogin", routes.createLogin);
 app.get("/login", routes.login);
 app.get("/signupComplete", routes.signupComplete);
-app.post("/signupComplete", urlencodedParser, routes.createPerson);
-app.post("/loggedIn", routes.loggedIn);
-app.get('/edit/:id', routes.edit);
-app.post('/edit/:id', urlencodedParser, routes.editPerson);
-app.get('/delete/:id', routes.delete);
+app.post("/signupCompleted", urlencodedParser, routes.createPerson);
+app.post("/loggingIn", urlencodedParser, routes.checkAuthorization);
+app.get("/edit/:id", routes.edit);
+app.post("/edit/:id", urlencodedParser, routes.editPerson);
+app.get("/delete/:id", routes.delete);
 
 app.listen(3000);

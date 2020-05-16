@@ -10,16 +10,24 @@ block content
         tr
             th Id
                 th Username
+                th Password
                 th Age
                 th Email
+                th Question 1
+                th Question 2
+                th Question 3
                 th
                 th
         each item in people
             tr
                 td #{item.id}
                 td #{item.username}
+                td #{item.password}
                 td #{item.age}
                 td #{item.email}
+                td #{item.firstQuestion}
+                td #{item.secondQuestion}
+                td #{item.thirdQuestion}
                 td
                     a(href='/edit/' + item.id) Edit
                 td
