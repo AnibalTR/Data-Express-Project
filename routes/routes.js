@@ -112,7 +112,11 @@ exports.createPerson = (req, res) => {
 
 //new input below - needs to compare to object id? Not sure how to do that..
 exports.checkAuthorization = (req, res) => {
-  if (req.body.username.id == Person.findById()) {
+  if (
+    Person.findById(req.params.id, (err, person) => {
+      if (err) return console.error(err);
+    })
+  ) {
     req.session.id = {
       isAuthenticated: true,
       username: req.body.username,
