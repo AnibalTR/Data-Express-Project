@@ -1,26 +1,31 @@
 extends layout
 
 block content
-    form(id='form', method='post', action='/signupCompleted')
+    form(id='form', method='post', action='/signupCompleted', onsubmit="return mySubmit()")
+        br
+        div(id="error_message")
+        br
         label(for='username') Username:
-        input(type='text', name='username')
+        input(id='username',type='text', name='username')
         br
         label(for='password') Password:
-        input(type='text', name='password')
+        input(id='password',type='text', name='password')
         br
         label(for='email') Email:
-        input(type='text', name='email')
+        input(id='email',type='text', name='email')
         br
         label(for='age') Age:
-        input(type='text', name='age')
+        input(id='age',type='text', name='age')
         br
         label(for='firstQuestion') Question 1 - What is your favorite video game?
-        input(type='text', name='firstQuestion')
+        input(id='firstQuestion',type='text', name='firstQuestion')
         br
         label(for='secondQuestion') Question 2 - What was the name of your first pet?
-        input(type='text', name='secondQuestion')
+        input(id='secondQuestion',type='text', name='secondQuestion')
         br
         label(for='thirdQuestion') Question 3 - What is your mother's maiden name?
-        input(type='text', name='thirdQuestion')
+        input(id='thirdQuestion',type='text', name='thirdQuestion')
         br
-        input(type='submit', value='Create Username Login')
+        input(id='submitted',type='submit', value='Create Username Login')
+
+    script(src='/credCheck.js')

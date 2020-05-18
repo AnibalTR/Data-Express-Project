@@ -1,16 +1,83 @@
+html {
+  background-color: #Da7635;
+
+}
+input {
+  border: 2px solid #654236;
+  background: #Da7635;
+  padding: 5px;
+  margin: 5px;
+}
+input {
+  background: #Da7635;
+}
+p {
+  font-size: 30px;
+  padding: 10px;
+}
+.btn {
+  background-color: #Da7635;
+  border: 5px solid #654236;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 10px;
+
+  font-size: 30px;
+}
+a:visited {
+  color: #c75146;
+}
+a:hover {
+  color: #654236;
+  font-size: 25px;
+}
+h1 { 
+  border: 5px solid #654236;
+  border-radius: 10px;
+  background-color: #Da7635;
+  color: #654236;
+  margin: auto;
+}
+
+body {
+  border: 5px solid #654236;
+  border-radius: 30px;
+  background-color: #db995a;
+  color: #fffa;
+  text-align: center;
+  margin: 30px;
+  padding: 30px;
+}
 
 table.gridtable {
   border-width: 1px;
+  margin: auto;
 }
 
 table.gridtable th {
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
+  border: 5px dashed #Da7635;
+  padding: 10px;
+  font-size: 20px;
+  color: #654236;
+}
+th:hover {
+  border: 5px solid lightgray;
+  border-radius: 5px;
 }
 
 table.gridtable td {
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
+  border: 5px solid #654236;
+  padding: 10px;
+  color: #654236;
+}
+td:hover {
+  border: 7px solid lightgray;
+}
+td:visited {
+  color: #c75146;
+}
+
+label {
+  font-size: 30px;
+  color: #654236;
 }
