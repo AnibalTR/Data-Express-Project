@@ -1,35 +1,36 @@
 extends layout
 
 block content
-    p Welcome to our homepage! Go ahead and sign in down below or create an account.
+    p Welcome to our homepage! Go ahead and sign in down below or create a new account.
     a(href='/createLogin') Create Login
     br
     a(href='/login') Login
-
-    table(class='gridtable')
-        tr
-            th Id
-                th Username
-                th Password
-                th Age
-                th Email
-                th Question 1
-                th Question 2
-                th Question 3
-                th
-                th
-        each item in people
+    
+    div(style="overflow-x:auto;")
+        table(class='gridtable')
             tr
-                td #{item.id}
-                td #{item.username}
-                td #{item.password}
-                td #{item.age}
-                td #{item.email}
-                td #{item.firstQuestion}
-                td #{item.secondQuestion}
-                td #{item.thirdQuestion}
-                td
-                    a(href='/edit/' + item.id) Edit
-                td
-                    a(href='/delete/' + item.id) Delete
+                th Id
+                    th Username
+                    th Password
+                    th Age
+                    th Email
+                    th Question 1
+                    th Question 2
+                    th Question 3
+                    th
+                    th
+            each item in people
+                tr
+                    td #{item.id}
+                    td #{item.username}
+                    td #{item.password}
+                    td #{item.age}
+                    td #{item.email}
+                    td #{item.firstQuestion}
+                    td #{item.secondQuestion}
+                    td #{item.thirdQuestion}
+                    td
+                        a(href='/edit/' + item.id) Edit
+                    td
+                        a(href='/delete/' + item.id) Delete
     p #{cookieMessage}
