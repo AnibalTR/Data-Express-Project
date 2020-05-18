@@ -132,7 +132,6 @@ exports.createPerson = (req, res) => {
   res.redirect("/signupComplete");
 };
 
-//new input below - needs to compare to object id? Not sure how to do that..
 exports.checkAuthorization = (req, res) => {
   console.log(req.body.username);
   Person.find({ username: req.body.username }, (err, person) => {

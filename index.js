@@ -11,9 +11,7 @@ let urlencodedParser = bodyParser.urlencoded({
   extended: false,
 });
 
-//cookies - unfinished
 app.use(cookieParser("This is my cookie passphrase"));
-/////////
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
