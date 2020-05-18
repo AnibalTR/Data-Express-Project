@@ -28,7 +28,6 @@ app.get("/createLogin", routes.createLogin);
 app.get("/login", routes.login);
 app.get("/signupComplete", routes.signupComplete);
 app.post("/signupCompleted", urlencodedParser, routes.createPerson);
-app.get("/loggedIn", routes.loggedIn);
 app.post("/loggedIn", urlencodedParser, routes.checkAuthorization);
 app.get("/edit/:id", routes.edit);
 app.post("/edit/:id", urlencodedParser, routes.editPerson);

@@ -62,9 +62,7 @@ exports.createLogin = (req, res) => {
 };
 
 exports.loggedIn = (req, res) => {
-  res.render("loggedIn", {
-    title: "Logged In",
-  });
+
 };
 
 exports.signupComplete = (req, res) => {
@@ -143,7 +141,11 @@ exports.checkAuthorization = (req, res) => {
         isAuthenticated: true,
         username: req.body.username,
       };
-      res.redirect("/loggedIn");
+      console.log(person)
+      res.render("loggedIn", {
+        title: "Logged In",
+        item: person[0]
+      });
     } else if (person.length > 1) {
       console.log("There is a duplicate.");
     } else {
