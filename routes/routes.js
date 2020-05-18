@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+const bcrypt = require("bcrypt-nodejs");
 mongoose.Promise = global.Promise;
 mongoose.connect(
   "mongodb+srv://AnibalTR:xFeg7GR8oCkmv4dS@cluster0-gipdv.mongodb.net/test?retryWrites=true&w=majority",
@@ -11,6 +12,8 @@ mongoose.connect(
 let mdb = mongoose.connection;
 mdb.on("error", console.error.bind(console, "connection error:"));
 mdb.once("open", (callback) => {});
+
+var visited = 0;
 
 let personSchema = mongoose.Schema({
   username: String,
@@ -25,11 +28,23 @@ let personSchema = mongoose.Schema({
 let Person = mongoose.model("User_Information", personSchema);
 
 exports.index = (req, res) => {
+  visited++;
+  let cookieMessage;
+  res.cookie("visited", visited, { maxAge: 999999999 });
+  if (req.cookies.beenHereBefore == "yes") {
+    cookieMessage =
+      "You have been here " + (parseInt(req.cookies.visited) + 1) + " times";
+  } else {
+    res.cookie("beenHereBefore", "yes", { maxAge: 999999999 });
+    res.cookie("visited", 0, { maxAge: 999999999 });
+    cookieMessage = "This is your first time visiting";
+  }
   Person.find((err, person) => {
     if (err) return console.error(err);
     res.render("index", {
       title: "Home page",
       people: person,
+      cookieMessage,
     });
   });
 };
@@ -76,10 +91,13 @@ exports.edit = (req, res) => {
 };
 
 exports.editPerson = (req, res) => {
+  let userPassword = req.body.password;
+  let salt = bcrypt.genSaltSync(10);
+  let hash = bcrypt.hashSync(userPassword, salt);
   Person.findById(req.params.id, (err, person) => {
     if (err) return console.error(err);
     person.username = req.body.username;
-    person.password = req.body.password;
+    person.password = hash;
     person.age = req.body.age;
     person.email = req.body.email;
     person.firstQuestion = req.body.firstQuestion;
@@ -94,9 +112,13 @@ exports.editPerson = (req, res) => {
 };
 
 exports.createPerson = (req, res) => {
+  let userPassword = req.body.password;
+  let salt = bcrypt.genSaltSync(10);
+  let hash = bcrypt.hashSync(userPassword, salt);
+
   let person = new Person({
     username: req.body.username,
-    password: req.body.password,
+    password: hash,
     email: req.body.email,
     age: req.body.age,
     firstQuestion: req.body.firstQuestion,
@@ -112,33 +134,22 @@ exports.createPerson = (req, res) => {
 
 //new input below - needs to compare to object id? Not sure how to do that..
 exports.checkAuthorization = (req, res) => {
-  if (
-    Person.findById(req.params.id, (err, person) => {
-      if (err) return console.error(err);
-    })
-  ) {
-    req.session.id = {
-      isAuthenticated: true,
-      username: req.body.username,
-    };
-    res.redirect("/loggedIn");
-  } else {
-    res.redirect("/");
-  }
-};
-//
-exports.hashingAndSalting = (req, res) => {
-  try {
-    let userPassword;
-    let salt = bcrypt.genSaltSync(10);
-    let hash = bcrypt.hashSync(userPassword, salt);
-
-    console.log(salt);
-    console.log(hash);
-
-    console.log(bcrypt.compareSync(userPassword, hash));
-    console.log(bcrypt.compareSync("paSsW0rd", hash));
-  } catch (err) {
-    console.log("There is an error");
-  }
+  console.log(req.body.username);
+  Person.find({ username: req.body.username }, (err, person) => {
+    if (
+      person.length === 1 &&
+      bcrypt.compareSync(req.body.password, person[0].password)
+    ) {
+      req.session.id = {
+        isAuthenticated: true,
+        username: req.body.username,
+      };
+      res.redirect("/loggedIn");
+    } else if (person.length > 1) {
+      console.log("There is a duplicate.");
+    } else {
+      res.redirect("/");
+    }
+    if (err) return console.error(err);
+  });
 };
