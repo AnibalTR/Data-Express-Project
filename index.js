@@ -26,6 +26,7 @@ app.use(
 app.get("/", routes.index);
 app.get("/createLogin", routes.createLogin);
 app.get("/login", routes.login);
+app.get("/wouldYouRather", routes.wouldYouRather);
 app.get("/signupComplete", routes.signupComplete);
 app.post("/signupCompleted", urlencodedParser, routes.createPerson);
 app.post("/loggedIn", urlencodedParser, routes.checkAuthorization);

@@ -61,9 +61,15 @@ exports.createLogin = (req, res) => {
   });
 };
 
-exports.loggedIn = (req, res) => {
+exports.wouldYouRather = (req, res) => {
+  res.render("wouldYouRather", {
+    title: "Would You Rather",
+  });
+}
 
-};
+// exports.loggedIn = (req, res) => {
+
+// };
 
 exports.signupComplete = (req, res) => {
   res.render("signupComplete", {
