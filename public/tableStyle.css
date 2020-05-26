@@ -81,3 +81,7 @@ label {
   font-size: 30px;
   color: #654236;
 }
+
+#barGraph {
+  background-color: #000;
+}
