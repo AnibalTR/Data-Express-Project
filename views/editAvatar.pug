@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    form(id='form', method='post', action='/newAvatar', onsubmit="return mySubmit()")
+        label(for='eyes') Eyes: 
+        input(id='eyes', type='text', name='eyes')
+        br
+        label(for='nose') Nose: 
+        input(id='nose', type='text', name='nose')
+        br
+        label(for='mouth') Mouth: 
+        input(id='mouth', type='text', name='mouth')
+        br
+        label(for='color') Color: 
+        input(id='color', type='text', name='color')
+        br
+        input(id='submitted', type='submit', value='Create New Avatar')
+        
