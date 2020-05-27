@@ -1,11 +1,26 @@
+
 extends layout
 
 block content
     head
         title Would you Rather
-        
     body
-        
-        canvas(id="barGraph")
-
+        div(id='container1' class='container')
+            div(id='wyrQuestion1' class='question') Would you rather have 3 hands or 3 feet?
+            div(id='option1' class='btn') 3 Hands
+            div(id='option2' class='btn') 3 Feet
+            div(id='wyrQuestion2' class='question') Would you rather lose your sense of taste or sense of smell?
+            div(id='option3' class='btn') Taste
+            div(id='option4' class='btn') Smell
+            div(id='wyrQuestion3' class='question') Would you rather burn or freeze?
+            div(id='option5' class='btn') Burn
+            div(id='option6' class='btn') Freeze
+            div(id='wyrQuestion4' class='question') Would you rather be unable to move your body everytime is rains or not be able to stop moving while the sun is out?
+            div(id='option7' class='btn') Unable to move during rain
+            div(id='option8' class='btn') Nonstop moving while sun it out
+            div(id='wyrQuestion5' class='question') Would you rather have constantly dry eyes or a constant runny nose?
+            div(id='option9' class='btn') Dry Eyes
+            div(id='option10' class='btn') Runny Nose 
+        canvas(id="barGraph" width="200" height="100")
+        br
     script(src='anibalsCanvas.js')

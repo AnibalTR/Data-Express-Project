@@ -14,6 +14,9 @@ mdb.on("error", console.error.bind(console, "connection error:"));
 mdb.once("open", (callback) => {});
 
 var visited = 0;
+var today = new Date();
+var time =
+  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 let personSchema = mongoose.Schema({
   username: String,
@@ -33,7 +36,9 @@ exports.index = (req, res) => {
   res.cookie("visited", visited, { maxAge: 999999999 });
   if (req.cookies.beenHereBefore == "yes") {
     cookieMessage =
-      "You have been here " + (parseInt(req.cookies.visited) + 1) + " times";
+      `You have been here ` +
+      (parseInt(req.cookies.visited) + 1) +
+      ` times. Current time is ${time} `;
   } else {
     res.cookie("beenHereBefore", "yes", { maxAge: 999999999 });
     res.cookie("visited", 0, { maxAge: 999999999 });
@@ -65,7 +70,7 @@ exports.wouldYouRather = (req, res) => {
   res.render("wouldYouRather", {
     title: "Would You Rather",
   });
-}
+};
 
 // exports.loggedIn = (req, res) => {
 
@@ -147,10 +152,10 @@ exports.checkAuthorization = (req, res) => {
         isAuthenticated: true,
         username: req.body.username,
       };
-      console.log(person)
+      console.log(person);
       res.render("loggedIn", {
         title: "Logged In",
-        item: person[0]
+        item: person[0],
       });
     } else if (person.length > 1) {
       console.log("There is a duplicate.");
