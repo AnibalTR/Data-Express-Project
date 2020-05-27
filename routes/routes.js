@@ -33,7 +33,7 @@ let Person = mongoose.model("User_Information", personSchema);
 exports.index = (req, res) => {
   visited++;
   let cookieMessage;
-  res.cookie("visited", visited, { maxAge: 999999999 });
+  res.cookie("visited", visited, time, { maxAge: 999999999 });
   if (req.cookies.beenHereBefore == "yes") {
     cookieMessage =
       `You have been here ` +
@@ -160,7 +160,7 @@ exports.checkAuthorization = (req, res) => {
     } else if (person.length > 1) {
       console.log("There is a duplicate.");
     } else {
-      res.redirect("/");
+      res.redirect("/login");
     }
     if (err) return console.error(err);
   });
