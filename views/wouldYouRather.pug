@@ -1,9 +1,9 @@
+
 extends layout
 
 block content
     head
         title Would you Rather
-        script(src='/public/anibalsCanvas.js')
     body
         div(id='container1' class='container')
             div(id='wyrQuestion1' class='question') Would you rather have 3 hands or 3 feet?
@@ -23,7 +23,4 @@ block content
             div(id='option10' class='btn') Runny Nose 
         canvas(id="barGraph" width="200" height="100")
         br
-
-        
-
-    
+    script(src='anibalsCanvas.js')
