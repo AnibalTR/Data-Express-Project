@@ -1,6 +1,5 @@
 html {
   background-color: #Da7635;
-
 }
 input {
   border: 2px solid #654236;
@@ -12,6 +11,7 @@ input {
   background: #Da7635;
 }
 p {
+  color: #654236;
   font-size: 30px;
   padding: 10px;
 }
@@ -70,6 +70,9 @@ table.gridtable td {
   padding: 10px;
   color: #654236;
 }
+table.gridtable a:hover {
+  font-size: 15px;
+}
 td:hover {
   border: 7px solid lightgray;
 }
@@ -84,4 +87,8 @@ label {
 
 #barGraph {
   background-color: #000;
+}
+img {
+ border: 5px solid #654236;
+ border-radius: 18px;
 }
