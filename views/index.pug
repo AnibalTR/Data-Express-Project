@@ -18,6 +18,10 @@ block content
                     th Question 1
                     th Question 2
                     th Question 3
+                    th Eye #
+                    th Mouth #
+                    th Nose #
+                    th Color #
                     th
                     th
             each item in people
@@ -30,6 +34,10 @@ block content
                     td #{item.firstQuestion}
                     td #{item.secondQuestion}
                     td #{item.thirdQuestion}
+                    td #{item.eyes}
+                    td #{item.mouth}
+                    td #{item.nose}
+                    td #{item.color}
                     td
                         a(href='/edit/' + item.id) Edit
                     td

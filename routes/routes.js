@@ -26,19 +26,25 @@ let personSchema = mongoose.Schema({
   firstQuestion: String,
   secondQuestion: String,
   thirdQuestion: String,
+  eyes: String,
+  nose: String,
+  mouth: String,
+  color: String,
 });
 
 let Person = mongoose.model("User_Information", personSchema);
 
+//I need to make small adjustments on timed cookie
+
 exports.index = (req, res) => {
   visited++;
+  let lastTimeVisitedMessage;
   let cookieMessage;
+  //insert cookie here
   res.cookie("visited", visited, time, { maxAge: 999999999 });
   if (req.cookies.beenHereBefore == "yes") {
     cookieMessage =
-      `You have been here ` +
-      (parseInt(req.cookies.visited) + 1) +
-      ` times. Current time is ${time} `;
+      `You have been here ` + (parseInt(req.cookies.visited) + 1) + ` times.`;
   } else {
     res.cookie("beenHereBefore", "yes", { maxAge: 999999999 });
     res.cookie("visited", 0, { maxAge: 999999999 });
@@ -71,10 +77,6 @@ exports.wouldYouRather = (req, res) => {
     title: "Would You Rather",
   });
 };
-
-// exports.loggedIn = (req, res) => {
-
-// };
 
 exports.signupComplete = (req, res) => {
   res.render("signupComplete", {
@@ -112,6 +114,10 @@ exports.editPerson = (req, res) => {
     person.firstQuestion = req.body.firstQuestion;
     person.secondQuestion = req.body.secondQuestion;
     person.thirdQuestion = req.body.thirdQuestion;
+    person.eyes = req.body.eyes;
+    person.nose = req.body.nose;
+    person.mouth = req.body.mouth;
+    person.color = req.body.color;
     person.save((err, person) => {
       if (err) return console.error(err);
       console.log(req.body.name + " updated");
@@ -133,6 +139,10 @@ exports.createPerson = (req, res) => {
     firstQuestion: req.body.firstQuestion,
     secondQuestion: req.body.secondQuestion,
     thirdQuestion: req.body.thirdQuestion,
+    eyes: req.body.eyes,
+    nose: req.body.nose,
+    mouth: req.body.mouth,
+    color: req.body.color,
   });
   person.save((err, person) => {
     if (err) return console.error(err);
@@ -151,6 +161,11 @@ exports.checkAuthorization = (req, res) => {
       req.session.id = {
         isAuthenticated: true,
         username: req.body.username,
+        password: person[0].password,
+        eyes: person[0].eyes,
+        nose: person[0].nose,
+        mouth: person[0].mouth,
+        color: person[0].color,
       };
       console.log(person);
       res.render("loggedIn", {

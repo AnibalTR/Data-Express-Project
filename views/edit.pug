@@ -24,6 +24,16 @@ block content
         label(for='thirdQuestion') Question 3 - What is your mother's maiden name?
         input(type='text', name='thirdQuestion' value=person.thirdQuestion)
         br
+        label(for='eyes') Eyes 1-10: 
+        input(id='eyes', type='text', name='eyes', value=person.eyes)
+        br
+        label(for='nose') Nose 1-10: 
+        input(id='nose', type='text', name='nose', value=person.nose)
+        br
+        label(for='mouth') Mouth 1-10: 
+        input(id='mouth', type='text', name='mouth', value=person.mouth)
+        br
+        label(for='color') Color In Hex Format (000-FFF): 
+        input(id='color', type='text', name='color', value=person.color)
+        br
         input(type='submit', value='Update Person')
-        
-    a(href='/editAvatar') Edit Avatar
