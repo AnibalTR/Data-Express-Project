@@ -6,6 +6,8 @@ const firstQuestion = document.getElementById("firstQuestion");
 const secondQuestion = document.getElementById("secondQuestion");
 const thirdQuestion = document.getElementById("thirdQuestion");
 
+//const eyes = document.getElementById("eyes");
+
 //We need to add regex for the values of our avatars to make user user puts in correct information
 
 const userName_pattern = /[a-zA-Z]{2,}/;
@@ -13,6 +15,8 @@ const password_pattern = /((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\!\@\;\(\)\,\.
 const email_pattern = /[a-zA-Z][@][a-zA-Z]{2,}[.][a-zA-Z]{2,}/;
 const age_pattern = /[0-9]/;
 const sentence_pattern = /[a-zA-Z0-9]/;
+// const avatar_pattern = /[0-10]/;
+// const avatar_color = /regex for color coordination/;
 
 const errorMessage = document.getElementById("error_message");
 
