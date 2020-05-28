@@ -3,37 +3,42 @@ extends layout
 block content   
  
     form(id='form', method='post', action='/edit/' + person.id)
+        br
+        div(id="error_message")
+        br
         label(for='username') Username:
-        input(type='text', name='username', value=person.username)
+        input(id='username' type='text' name='username' value=person.username)
         br
         label(for='password') Password:
-        input(type='text', name='password')
+        input(id='password' type='text' name='password')
         br
         label(for='age') Age:
-        input(type='text', name='age', value=person.age)
+        input(id='age' type='text' name='age' value=person.age)
         br
         label(for='email') Email:
-        input(type='text', name='email' value=person.email)
+        input(id='email' type='text' name='email' value=person.email)
         br
         label(for='firstQuestion') Question 1 - What is your favorite video game?
-        input(type='text', name='firstQuestion', value=person.firstQuestion)
+        input(id='firstQuestion' type='text' name='firstQuestion' value=person.firstQuestion)
         br
         label(for='secondQuestion') Question 2 - What was the name of your first pet?
-        input(type='text', name='secondQuestion', value=person.secondQuestion)
+        input(id='secondQuestion' type='text' name='secondQuestion' value=person.secondQuestion)
         br
         label(for='thirdQuestion') Question 3 - What is your mother's maiden name?
-        input(type='text', name='thirdQuestion' value=person.thirdQuestion)
+        input(id='thirdQuestion' type='text' name='thirdQuestion' value=person.thirdQuestion)
         br
         label(for='eyes') Eyes 1-10: 
-        input(id='eyes', type='text', name='eyes', value=person.eyes)
+        input(id='eyes' type='text' name='eyes' value=person.eyes)
         br
         label(for='nose') Nose 1-10: 
-        input(id='nose', type='text', name='nose', value=person.nose)
+        input(id='nose' type='text' name='nose' value=person.nose)
         br
         label(for='mouth') Mouth 1-10: 
-        input(id='mouth', type='text', name='mouth', value=person.mouth)
+        input(id='mouth' type='text' name='mouth' value=person.mouth)
         br
         label(for='color') Color In Hex Format (000-FFF): 
-        input(id='color', type='text', name='color', value=person.color)
+        input(id='color' type='text' name='color' value=person.color)
         br
-        input(type='submit', value='Update Person')
+        input(id='submitted' type='submit' value='Update Person')
+    
+    script(src='/credCheck.js')
