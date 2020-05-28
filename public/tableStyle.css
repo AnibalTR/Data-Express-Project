@@ -92,3 +92,19 @@ img {
  border: 5px solid #654236;
  border-radius: 18px;
 }
+
+.question {
+  border: 5px solid #654236;
+  background-color: #db995a;
+  border-radius: 5px;
+  margin: 5px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 5px;
+  font-size: 25px;
+  color: #654236;
+}
+
+.btn {
+  color: #654236;
+}
