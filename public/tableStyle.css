@@ -1,24 +1,20 @@
 html {
   background-color: #Da7635;
 }
-
 input {
   border: 2px solid #654236;
   background: #Da7635;
   padding: 5px;
   margin: 5px;
 }
-
 input {
   background: #Da7635;
 }
-
 p {
   color: #654236;
   font-size: 30px;
   padding: 10px;
 }
-
 .btn {
   background-color: #Da7635;
   border: 5px solid #654236;
@@ -28,16 +24,13 @@ p {
 
   font-size: 30px;
 }
-
 a:visited {
   color: #c75146;
 }
-
 a:hover {
   color: #654236;
   font-size: 25px;
 }
-
 h1 { 
   border: 5px solid #654236;
   border-radius: 10px;
@@ -100,17 +93,18 @@ img {
  border-radius: 18px;
 }
 
-.WYRquestion{
-  font-size: 30px;
-  
+.question {
+  border: 5px solid #654236;
+  background-color: #db995a;
+  border-radius: 5px;
+  margin: 5px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 5px;
+  font-size: 25px;
+  color: #654236;
 }
 
-.WYRbtn{
-  background-color: #Da7635;
-  border: 5px solid #654236;
-  width: 50%;
-  border-radius: 10px;
-  padding: 2px;
-  margin: 10px;
-  font-size: 20px;
+.btn {
+  color: #654236;
 }
