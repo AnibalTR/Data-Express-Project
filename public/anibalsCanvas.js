@@ -9,21 +9,24 @@ let ctx2 = canvas2.getContext("2d");
 let ctx3 = canvas3.getContext("2d");
 let ctx4 = canvas4.getContext("2d");
 let ctx5 = canvas5.getContext("2d");
-
+let line = 0; 
 // canvas.width = 500;
 // canvas.height = 250;
 
 const drawStuff = () => {
+  
+  for (i = 0; i < 9; i++) {
+      line = line + 30;
+      console.log(line);
+      ctx1.strokeStyle = 'rgb(0,0,0)';
+      ctx1.beginPath(), ctx1.moveTo(line, 0), ctx1.lineTo(line, 150), ctx1.stroke();  
+  }
 
-    for (i = 1; i < 6; i++) {
-        graph = `ctx${i}`
-        graph.fillStyle = "#405";
-        ctx.fillRect(100, 100, 80, 40);
-        console.log(i);
-        console.log(graph);
-    }
+    
 
-  };
+
+
+};
 
 drawStuff();
 
