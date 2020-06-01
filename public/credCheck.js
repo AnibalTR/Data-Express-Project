@@ -5,24 +5,32 @@ const age = document.getElementById("age");
 const firstQuestion = document.getElementById("firstQuestion");
 const secondQuestion = document.getElementById("secondQuestion");
 const thirdQuestion = document.getElementById("thirdQuestion");
+const userEyes = document.getElementById("eyes");
+const userNose = document.getElementById("nose");
+const userMouth = document.getElementById("mouth");
+const userColor = document.getElementById("color");
 
 //const eyes = document.getElementById("eyes");
 
-//We need to add regex for the values of our avatars to make user user puts in correct information
+//We need to add regex for the values of our avatars to make user puts in correct information
 
 const userName_pattern = /[a-zA-Z]{2,}/;
 const password_pattern = /((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\!\@\;\(\)\,\.\:\'\"\#\$\%\^\&\*\>\/\<\}\?\{\]\[]).{8,})/;
 const email_pattern = /[a-zA-Z][@][a-zA-Z]{2,}[.][a-zA-Z]{2,}/;
 const age_pattern = /[0-9]/;
 const sentence_pattern = /[a-zA-Z0-9]/;
-// const avatar_pattern = /[0-10]/;
-// const avatar_color = /regex for color coordination/;
+const avatar_pattern = /10|[0-9]{1}/;
+const avatar_color = /[0-9a-fA-F]{3}/;
 
 const errorMessage = document.getElementById("error_message");
 
 const validate = (evt) => {
   error_msg = " ";
   if (
+    avatar_color.test(userColor.value) &&
+    avatar_pattern.test(userMouth.value) &&
+    avatar_pattern.test(userNose.value) &&
+    avatar_pattern.test(userEyes.value) &&
     sentence_pattern.test(thirdQuestion.value) &&
     sentence_pattern.test(secondQuestion.value) &&
     sentence_pattern.test(firstQuestion.value) &&
@@ -32,6 +40,22 @@ const validate = (evt) => {
     userName_pattern.test(username.value)
   ) {
     errors = false;
+  }
+  if (!avatar_color.test(userColor.value)) {
+    error_msg = "Color needs to be in hex format (000-FFF).";
+    errors = true;
+  }
+  if (!avatar_pattern.test(userMouth.value)) {
+    error_msg = "Mouth needs to be range from 0 to 10.";
+    errors = true;
+  }
+  if (!avatar_pattern.test(userNose.value)) {
+    error_msg = "Nose needs to be range from 0 to 10.";
+    errors = true;
+  }
+  if (!avatar_pattern.test(userEyes.value)) {
+    error_msg = "Eyes needs to be range from 0 to 10.";
+    errors = true;
   }
   if (!sentence_pattern.test(thirdQuestion.value)) {
     error_msg = "third Question needs an answer";
@@ -85,3 +109,7 @@ age.addEventListener("input", validate);
 firstQuestion.addEventListener("input", validate);
 secondQuestion.addEventListener("input", validate);
 thirdQuestion.addEventListener("input", validate);
+userEyes.addEventListener("input", validate);
+userNose.addEventListener("input", validate);
+userMouth.addEventListener("input", validate);
+userColor.addEventListener("input", validate);
