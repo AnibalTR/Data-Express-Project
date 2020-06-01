@@ -85,8 +85,12 @@ label {
   color: #654236;
 }
 
-#barGraph {
-  background-color: #000;
+.barGraph {
+  background-color: #ffd4ac;
+  border: 5px solid #654236;
+  border-radius: 5px;
+  width: 400px;
+  height: 200px;
 }
 img {
  border: 5px solid #654236;
