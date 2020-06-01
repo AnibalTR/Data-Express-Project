@@ -110,3 +110,15 @@ img {
   margin-left: 350px;
   margin-right: 350px;
 }
+
+.btn:active{
+  border: 5px solid #db995a;
+  background-color: #654236;
+  color: #db995a;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.btn:focus {
+  outline: blue auto 5px;
+}
