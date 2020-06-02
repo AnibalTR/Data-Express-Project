@@ -23,6 +23,8 @@ app.use(
     resave: true,
   })
 );
+
+app.get('/api', routes.api);
 app.get("/", routes.index);
 app.get("/createLogin", routes.createLogin);
 app.get("/login", routes.login);

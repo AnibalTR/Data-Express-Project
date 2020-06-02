@@ -34,6 +34,38 @@ let personSchema = mongoose.Schema({
 
 let Person = mongoose.model("User_Information", personSchema);
 
+
+// api stuff
+const theJSON = [
+  {
+    name: "Bob",
+    age: 21,
+    species: "zombie"
+  },
+  {
+    name: "Suzette",
+    age: 34,
+    species: "vampire"
+  },
+  {
+    name: "Harry",
+    age: 42,
+    species: "werewolf"
+  },
+  {
+    name: "Sally",
+    age: 28,
+    species: "human"
+  }
+  
+]
+
+let userAnswers = JSON.stringify(personSchema);
+
+exports.api = (req, res) => {
+  res.json(personSchema);
+}
+
 //I need to make small adjustments on timed cookie
 
 exports.index = (req, res) => {
@@ -180,3 +212,5 @@ exports.checkAuthorization = (req, res) => {
     if (err) return console.error(err);
   });
 };
+
+

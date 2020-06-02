@@ -10,25 +10,33 @@ let ctx3 = canvas3.getContext("2d");
 let ctx4 = canvas4.getContext("2d");
 let ctx5 = canvas5.getContext("2d");
 let line = 0; 
+
+
 // canvas.width = 500;
 // canvas.height = 250;
 
-const drawStuff = () => {
-  
+const graphLayout = () => {
   for (i = 0; i < 9; i++) {
       line = line + 30;
-      console.log(line);
       ctx1.strokeStyle = 'rgb(0,0,0)';
-      ctx1.beginPath(), ctx1.moveTo(line, 0), ctx1.lineTo(line, 150), ctx1.stroke();  
+      ctx1.beginPath(), ctx1.moveTo(line, 0), ctx1.lineTo(line, 120), ctx1.stroke();  
+      ctx2.beginPath(), ctx2.moveTo(line, 0), ctx2.lineTo(line, 120), ctx2.stroke();  
+      ctx3.beginPath(), ctx3.moveTo(line, 0), ctx3.lineTo(line, 120), ctx3.stroke();  
+      ctx4.beginPath(), ctx4.moveTo(line, 0), ctx4.lineTo(line, 120), ctx4.stroke();  
+      ctx5.beginPath(), ctx5.moveTo(line, 0), ctx5.lineTo(line, 120), ctx5.stroke();  
+
+      ctx1.beginPath(), ctx1.moveTo(0, 120), ctx1.lineTo(300, 120), ctx1.stroke();  
+      ctx2.beginPath(), ctx2.moveTo(0, 120), ctx2.lineTo(300, 120), ctx2.stroke();  
+      ctx3.beginPath(), ctx3.moveTo(0, 120), ctx3.lineTo(300, 120), ctx3.stroke();  
+      ctx4.beginPath(), ctx4.moveTo(0, 120), ctx4.lineTo(300, 120), ctx4.stroke();  
+      ctx5.beginPath(), ctx5.moveTo(0, 120), ctx5.lineTo(300, 120), ctx5.stroke();   
+  
   }
-
-    
-
 
 
 };
 
-drawStuff();
+graphLayout();
 
 //   let player_x = 0;
 //   let player_y = 110;
