@@ -36,6 +36,7 @@ let Person = mongoose.model("User_Information", personSchema);
 
 
 // api stuff
+// stuff to test with the api its not actually connected to anything
 const theJSON = [
   {
     name: "Bob",
