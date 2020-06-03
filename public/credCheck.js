@@ -19,7 +19,7 @@ const password_pattern = /((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[\!\@\;\(\)\,\.
 const email_pattern = /[a-zA-Z][@][a-zA-Z]{2,}[.][a-zA-Z]{2,}/;
 const age_pattern = /[0-9]/;
 const sentence_pattern = /[a-zA-Z0-9]/;
-const avatar_pattern = /10|[0-9]{1}/;
+const avatar_pattern = /^(?:[1-9]|0[1-9]|10)$/;
 const avatar_color = /[0-9a-fA-F]{3}/;
 
 const errorMessage = document.getElementById("error_message");
@@ -46,15 +46,15 @@ const validate = (evt) => {
     errors = true;
   }
   if (!avatar_pattern.test(userMouth.value)) {
-    error_msg = "Mouth needs to be range from 0 to 10.";
+    error_msg = "Mouth needs to be range from 1 to 10.";
     errors = true;
   }
   if (!avatar_pattern.test(userNose.value)) {
-    error_msg = "Nose needs to be range from 0 to 10.";
+    error_msg = "Nose needs to be range from 1 to 10.";
     errors = true;
   }
   if (!avatar_pattern.test(userEyes.value)) {
-    error_msg = "Eyes needs to be range from 0 to 10.";
+    error_msg = "Eyes needs to be range from 1 to 10.";
     errors = true;
   }
   if (!sentence_pattern.test(wyrQuestion3.value)) {

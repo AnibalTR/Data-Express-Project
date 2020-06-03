@@ -7,6 +7,10 @@ let ctx2 = canvas2.getContext("2d");
 let ctx3 = canvas3.getContext("2d");
 let line = 0; 
 
+let url = "http://localhost:3000/api";
+
+
+
 
 // canvas.width = 500;
 // canvas.height = 250;
@@ -101,8 +105,7 @@ const barGraph = () => {
   barOneColor = "red";
   barTwoColor = "blue";
 
-  barGraphReportOne = 30;
-  barGraphReportTwo = 30;
+
 
   ctx1.beginPath();
   ctx1.fillStyle = barOneColor;
@@ -138,6 +141,34 @@ const barGraph = () => {
 graphLayout();
 graphVariables();
 barGraph();
+
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    //below is how to get total of people in database
+    console.log(data.length);
+    let barGraphReportOne = 30;
+    let barGraphReportTwo = 30;
+    let red = 0;
+    let blue = 0;
+    let index;
+    for (index = 0; index < data.length; index++) {
+      console.log(data[index].wyrQuestion1);
+      if (data[index].wyrQuestion1 === "3 Feet") {
+        barGraphReportOne = red + 30;
+      }
+      if (data[index].wyrQuestion1 === "3 Hands") {
+        barGraphReportTwo = blue + 30;
+      }
+    }
+    barGraph();
+    // console.log(data);
+    // document.getElementById(
+    //   "json_holder"
+    // ).innerHTML = `${data[1].wyrQ1}, ${data[1].age}, ${data[1].species}`;
+    //use the section above to update canvas graph
+  })
+  .catch((err) => console.log(err));
 
   // let player_x = 0;
   // let player_y = 10;
