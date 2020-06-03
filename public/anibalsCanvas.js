@@ -24,7 +24,8 @@ fetch(url)
     for (index = 0; index < data.length; index++) {
       console.log(data[index].wyrQuestion1);
       if (data[index].wyrQuestion1 === "3 Feet") {
-        barGraphReportOne = barGraphReportOne + 30;
+        // if(barGraphReportOne <= 300){
+        //   barGraphReportOne = barGraphReportOne + 30;
       }
       if (data[index].wyrQuestion1 === "3 Hands") {
         barGraphReportTwo = barGraphReportTwo + 30;
