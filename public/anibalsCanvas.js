@@ -156,12 +156,12 @@ fetch(url)
       console.log(data[index].wyrQuestion1);
       if (data[index].wyrQuestion1 === "3 Feet") {
         barGraphReportOne = red + 30;
+        console.log(barGraphReportOne);
       }
       if (data[index].wyrQuestion1 === "3 Hands") {
         barGraphReportTwo = blue + 30;
       }
     }
-    barGraph();
     // console.log(data);
     // document.getElementById(
     //   "json_holder"
