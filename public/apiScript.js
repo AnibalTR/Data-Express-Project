@@ -14,7 +14,7 @@ fetch(url)
       if (data[index].wyrQuestion1 === "3 Feet") {
         red = red + 30;
       }
-      if (data[index].wyrQuestion1 === "3 Feet") {
+      if (data[index].wyrQuestion1 === "3 Hands") {
         blue = blue + 30;
       }
     }

@@ -16,20 +16,58 @@ fetch(url)
     let ctx1 = canvas1.getContext("2d");
     let ctx2 = canvas2.getContext("2d");
     let ctx3 = canvas3.getContext("2d");
+
     let line = 0;
     console.log(data.length);
-    let barGraphReportOne = 0;
-    let barGraphReportTwo = 0;
+
+    let firstGraphReportOne = 0;
+    let firstGraphReportTwo = 0;
+
+    let secondGraphReportOne = 0;
+    let secondGraphReportTwo = 0;
+
+    let thirdGraphReportOne = 0;
+    let thirdGraphReportTwo = 0;
+
     let index;
-    for (index = 0; index < data.length; index++) {
-      console.log(data[index].wyrQuestion1);
+
+    const graphOneCheck = () => {
       if (data[index].wyrQuestion1 === "3 Feet") {
         // if(barGraphReportOne <= 300){
-        barGraphReportOne = barGraphReportOne + 30;
+        firstGraphReportOne = firstGraphReportOne + 30;
       }
       if (data[index].wyrQuestion1 === "3 Hands") {
-        barGraphReportTwo = barGraphReportTwo + 30;
+        firstGraphReportTwo = firstGraphReportTwo + 30;
       }
+    }
+
+    const graphTwoCheck = () => {
+      if (data[index].wyrQuestion2 === "Taste") {
+        secondGraphReportOne = secondGraphReportOne + 30;
+      }
+      if (data[index].wyrQuestion2 === "Smell") {
+        secondGraphReportTwo = secondGraphReportTwo + 30;
+      }
+      console.log(secondGraphReportOne+"/"+secondGraphReportTwo)
+
+    }
+
+    
+    const graphThreeCheck = () => {
+      if (data[index].wyrQuestion3 === "Burn") {
+          thirdGraphReportOne = thirdGraphReportOne + 30;
+      }
+      if (data[index].wyrQuestion3 === "Freeze") {
+        thirdGraphReportTwo = thirdGraphReportTwo + 30;
+      }
+    }
+
+    for (index = 0; index < data.length; index++) {
+      // console.log(data[index].wyrQuestion1);
+      graphOneCheck();
+      graphTwoCheck();
+      graphThreeCheck();
+
     }
 
     const graphLayout = () => {
@@ -74,8 +112,8 @@ fetch(url)
       optionTwoColor = "blue";
 
       //first graph stuff
-      ctx1.fillText("3 hands", 60, 140);
-      ctx1.fillText("3 feet", 200, 140);
+      ctx1.fillText("3 feet", 60, 140);
+      ctx1.fillText("3 hands", 200, 140);
 
       ctx1.beginPath();
       ctx1.fillStyle = optionOneColor;
@@ -131,32 +169,32 @@ fetch(url)
 
       ctx1.beginPath();
       ctx1.fillStyle = barOneColor;
-      ctx1.fillRect(barStart, barHeightOne, barGraphReportOne, 30);
+      ctx1.fillRect(barStart, barHeightOne, firstGraphReportOne, 30);
       ctx1.fill();
 
       ctx1.beginPath();
       ctx1.fillStyle = barTwoColor;
-      ctx1.fillRect(barStart, barHeightTwo, barGraphReportTwo, 30);
+      ctx1.fillRect(barStart, barHeightTwo, firstGraphReportTwo, 30);
       ctx1.fill();
 
       ctx2.beginPath();
       ctx2.fillStyle = barOneColor;
-      ctx2.fillRect(barStart, barHeightOne, barGraphReportOne, 30);
+      ctx2.fillRect(barStart, barHeightOne, secondGraphReportOne, 30);
       ctx2.fill();
 
       ctx2.beginPath();
       ctx2.fillStyle = barTwoColor;
-      ctx2.fillRect(barStart, barHeightTwo, barGraphReportTwo, 30);
+      ctx2.fillRect(barStart, barHeightTwo, secondGraphReportTwo, 30);
       ctx2.fill();
 
       ctx3.beginPath();
       ctx3.fillStyle = barOneColor;
-      ctx3.fillRect(barStart, barHeightOne, barGraphReportOne, 30);
+      ctx3.fillRect(barStart, barHeightOne, thirdGraphReportOne, 30);
       ctx3.fill();
 
       ctx3.beginPath();
       ctx3.fillStyle = barTwoColor;
-      ctx3.fillRect(barStart, barHeightTwo, barGraphReportTwo, 30);
+      ctx3.fillRect(barStart, barHeightTwo, thirdGraphReportTwo, 30);
       ctx3.fill();
     };
 
