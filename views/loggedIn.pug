@@ -7,9 +7,10 @@ block content
     img(id='image' src=`https://api.adorable.io/avatars/face/${item.eyes}/${item.nose}/${item.mouth}/${item.color}`)
     p Make changes to your account info
     br
-    a(href='/wouldYouRather') Would you Rather
-    br
     a(href="/edit/" + item["_id"]) Edit Account
     br
     a(href='/logout') Logout
+    br  
     br
+    script(src="anibalsCanvas.js")
+    

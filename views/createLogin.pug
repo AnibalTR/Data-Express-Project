@@ -17,15 +17,24 @@ block content
         label(for='age') Age:
         input(id='age',type='text', name='age')
         br
-        label(for='firstQuestion') Question 1 - What is your favorite video game?
-        input(id='firstQuestion',type='text', name='firstQuestion')
+        
         br
-        label(for='secondQuestion') Question 2 - What was the name of your first pet?
-        input(id='secondQuestion',type='text', name='secondQuestion')
+        div(id='wyrQuestion1' class='question') Would you rather have 3 hands or 3 feet?
+        div(id='option1' class='btn' name='wyrQuestion1') 3 Hands
+        div(id='option2' class='btn' name='wyrQuestion1') 3 Feet
+        canvas(id="barGraphOne" class="barGraph")
         br
-        label(for='thirdQuestion') Question 3 - What is your mother's maiden name?
-        input(id='thirdQuestion',type='text', name='thirdQuestion')
+        div(id='wyrQuestion2' class='question') Would you rather lose your sense of taste or sense of smell?
+        div(id='option3' class='btn' name='wyrQuestion2') Taste
+        div(id='option4' class='btn' name='wyrQuestion2') Smell
+        canvas(id="barGraphTwo" class="barGraph")
         br
+        div(id='wyrQuestion3' class='question') Would you rather burn or freeze?
+        div(id='option5' class='btn' name='wyrQuestion3') Burn
+        div(id='option6' class='btn' name='wyrQuestion3') Freeze
+        canvas(id="barGraphThree" class="barGraph")
+        br
+
         label(for='eyes') Eyes #1-10: 
         input(id='eyes', type='text', name='eyes')
         br
@@ -41,3 +50,4 @@ block content
         input(id='submitted',type='submit', value='Create Username Login')
 
     script(src='/credCheck.js')
+    script(src="/codyTest.js")

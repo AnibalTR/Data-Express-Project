@@ -23,9 +23,9 @@ let personSchema = mongoose.Schema({
   password: String,
   email: String,
   age: String,
-  firstQuestion: String,
-  secondQuestion: String,
-  thirdQuestion: String,
+  wyrQuestion1: String,
+  wyrQuestion2: String,
+  wyrQuestion3: String,
   eyes: String,
   nose: String,
   mouth: String,
@@ -34,35 +34,11 @@ let personSchema = mongoose.Schema({
 
 let Person = mongoose.model("User_Information", personSchema);
 
-// api stuff
-// stuff to test with the api its not actually connected to anything
-const theJSON = [
-  {
-    name: "Bob",
-    age: 21,
-    species: "zombie",
-  },
-  {
-    name: "Suzette",
-    age: 34,
-    species: "vampire",
-  },
-  {
-    name: "Harry",
-    age: 42,
-    species: "werewolf",
-  },
-  {
-    name: "Sally",
-    age: 28,
-    species: "human",
-  },
-];
-
-let userAnswers = JSON.stringify(personSchema);
-
 exports.api = (req, res) => {
-  res.json(personSchema);
+  Person.find((err, person) => {
+    console.log(person);
+    res.json(person);
+  });
 };
 
 //I need to make small adjustments on timed cookie
@@ -142,9 +118,9 @@ exports.editPerson = (req, res) => {
     person.password = hash;
     person.age = req.body.age;
     person.email = req.body.email;
-    person.firstQuestion = req.body.firstQuestion;
-    person.secondQuestion = req.body.secondQuestion;
-    person.thirdQuestion = req.body.thirdQuestion;
+    person.wyrQuestion1 = req.body.wyrQuestion1;
+    person.wyrQuestion2 = req.body.wyrQuestion2;
+    person.wyrQuestion3 = req.body.wyrQuestion3;
     person.eyes = req.body.eyes;
     person.nose = req.body.nose;
     person.mouth = req.body.mouth;
@@ -167,9 +143,9 @@ exports.createPerson = (req, res) => {
     password: hash,
     email: req.body.email,
     age: req.body.age,
-    firstQuestion: req.body.firstQuestion,
-    secondQuestion: req.body.secondQuestion,
-    thirdQuestion: req.body.thirdQuestion,
+    wyrQuestion1: req.body.wyrQuestion1,
+    wyrQuestion2: req.body.wyrQuestion2,
+    wyrQuestion3: req.body.wyrQuestion3,
     eyes: req.body.eyes,
     nose: req.body.nose,
     mouth: req.body.mouth,
