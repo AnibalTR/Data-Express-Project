@@ -14,9 +14,7 @@ mdb.on("error", console.error.bind(console, "connection error:"));
 mdb.once("open", (callback) => {});
 
 var visited = 0;
-var today = new Date();
-var time =
-  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var d = new Date(Date.now());
 
 let personSchema = mongoose.Schema({
   username: String,
@@ -40,17 +38,12 @@ exports.api = (req, res) => {
   });
 };
 
-//I need to make small adjustments on timed cookie
-
 exports.index = (req, res) => {
   visited++;
-  let lastTimeVisitedMessage;
   let cookieMessage;
-  //insert cookie here
-  res.cookie("visited", visited, time, { maxAge: 999999999 });
+  res.cookie("date/time", d, { maxAge: 999999999 });
   if (req.cookies.beenHereBefore == "yes") {
-    cookieMessage =
-      `You have been here ` + (parseInt(req.cookies.visited) + 1) + ` times.`;
+    cookieMessage = `Last time you visted: ${d}`;
   } else {
     res.cookie("beenHereBefore", "yes", { maxAge: 999999999 });
     res.cookie("visited", 0, { maxAge: 999999999 });
