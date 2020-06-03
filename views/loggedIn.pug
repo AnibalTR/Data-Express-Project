@@ -6,16 +6,28 @@ block content
     p Your Avatar
     img(id='image' src=`https://api.adorable.io/avatars/face/${item.eyes}/${item.nose}/${item.mouth}/${item.color}`)
     p Make changes to your account info
-    br
+
     a(href="/edit/" + item["_id"]) Edit Account
     br
     a(href='/logout') Logout
     br
+    br
+    label(for='wyrQuestion1') Would you rather have 3 hands or 3 feet?
+    br
     canvas(id="barGraphOne", class="barGraph")  
+    br
+
+    br
+    label(for='wyrQuestion2') Would you rather lose your sense of taste or sense of smell?
     br
     canvas(id="barGraphTwo", class="barGraph")
     br
+
+    br
+    label(for='wyrQuestion3') Would you rather burn or freeze?
+    br
     canvas(id="barGraphThree", class="barGraph")
     br
+    
     script(src="anibalsCanvas.js")
     
