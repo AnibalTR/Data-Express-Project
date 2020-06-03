@@ -2,9 +2,9 @@ const username = document.getElementById("username");
 const password = document.getElementById("password");
 const email = document.getElementById("email");
 const age = document.getElementById("age");
-const firstQuestion = document.getElementById("firstQuestion");
-const secondQuestion = document.getElementById("secondQuestion");
-const thirdQuestion = document.getElementById("thirdQuestion");
+const wyrQuestion1 = document.getElementById("wyrQuestion1");
+const wyrQuestion2 = document.getElementById("wyrQuestion2");
+const wyrQuestion3 = document.getElementById("wyrQuestion3");
 const userEyes = document.getElementById("eyes");
 const userNose = document.getElementById("nose");
 const userMouth = document.getElementById("mouth");
@@ -31,9 +31,9 @@ const validate = (evt) => {
     avatar_pattern.test(userMouth.value) &&
     avatar_pattern.test(userNose.value) &&
     avatar_pattern.test(userEyes.value) &&
-    sentence_pattern.test(thirdQuestion.value) &&
-    sentence_pattern.test(secondQuestion.value) &&
-    sentence_pattern.test(firstQuestion.value) &&
+    sentence_pattern.test(wyrQuestion3.value) &&
+    sentence_pattern.test(wyrQuestion2.value) &&
+    sentence_pattern.test(wyrQuestion1.value) &&
     age_pattern.test(age.value) &&
     email_pattern.test(email.value) &&
     password_pattern.test(password.value) &&
@@ -57,15 +57,15 @@ const validate = (evt) => {
     error_msg = "Eyes needs to be range from 0 to 10.";
     errors = true;
   }
-  if (!sentence_pattern.test(thirdQuestion.value)) {
+  if (!sentence_pattern.test(wyrQuestion3.value)) {
     error_msg = "third Question needs an answer";
     errors = true;
   }
-  if (!sentence_pattern.test(secondQuestion.value)) {
+  if (!sentence_pattern.test(wyrQuestion2.value)) {
     error_msg = "second Question needs an answer";
     errors = true;
   }
-  if (!sentence_pattern.test(firstQuestion.value)) {
+  if (!sentence_pattern.test(wyrQuestion1.value)) {
     error_msg = "first Question needs an answer";
     errors = true;
   }
@@ -106,9 +106,9 @@ username.addEventListener("input", validate);
 password.addEventListener("input", validate);
 email.addEventListener("input", validate);
 age.addEventListener("input", validate);
-firstQuestion.addEventListener("input", validate);
-secondQuestion.addEventListener("input", validate);
-thirdQuestion.addEventListener("input", validate);
+wyrQuestion1.addEventListener("input", validate);
+wyrQuestion2.addEventListener("input", validate);
+wyrQuestion3.addEventListener("input", validate);
 userEyes.addEventListener("input", validate);
 userNose.addEventListener("input", validate);
 userMouth.addEventListener("input", validate);

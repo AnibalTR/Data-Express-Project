@@ -19,22 +19,37 @@ block content
         br
         
         br
-        div(id='wyrQuestion1' class='question') Would you rather have 3 hands or 3 feet?
-        div(id='option1' class='btn' name='wyrQuestion1') 3 Hands
-        div(id='option2' class='btn' name='wyrQuestion1') 3 Feet
-        canvas(id="barGraphOne" class="barGraph")
+        label(for='wyrQuestion1') Would you rather have 3 hands or 3 feet?
         br
-        div(id='wyrQuestion2' class='question') Would you rather lose your sense of taste or sense of smell?
-        div(id='option3' class='btn' name='wyrQuestion2') Taste
-        div(id='option4' class='btn' name='wyrQuestion2') Smell
-        canvas(id="barGraphTwo" class="barGraph")
+        input(id='wyrQuestion1', type='radio', name='wyrQuestion1', value="3 Hands")
+        label Three Hands
         br
-        div(id='wyrQuestion3' class='question') Would you rather burn or freeze?
-        div(id='option5' class='btn' name='wyrQuestion3') Burn
-        div(id='option6' class='btn' name='wyrQuestion3') Freeze
-        canvas(id="barGraphThree" class="barGraph")
+        input(id='wyrQuestion1', type='radio', name='wyrQuestion1', value="3 Feet")
+        label Three Feet
         br
-
+        
+        br
+        label(for='wyrQuestion2') Would you rather lose your sense of taste or sense of smell?
+        br
+        input(id='wyrQuestion2', type='radio', name='wyrQuestion2', value="Taste")
+        label Taste
+        br        
+        input(id='wyrQuestion2', type='radio', name='wyrQuestion2', value="Smell")
+        label Smell
+        br
+        
+        br
+        label(for='wyrQuestion3') Would you rather burn or freeze?
+        br
+        input(id='wyrQuestion3', type='radio', name='wyrQuestion3', value="Burn")
+        label Burn
+        br        
+        input(id='wyrQuestion3', type='radio', name='wyrQuestion3', value="Freeze")
+        label Freeze
+        br
+        
+        br
+        br
         label(for='eyes') Eyes #1-10: 
         input(id='eyes', type='text', name='eyes')
         br
@@ -47,7 +62,6 @@ block content
         label(for='color') Color in Hex Format (000-FFF): 
         input(id='color', type='text', name='color')
         br
-        input(id='submitted',type='submit', value='Create Username Login')
+        input(id='submitted', type='submit', value='Create Username Login')
 
-    script(src='/credCheck.js')
-    script(src="/codyTest.js")
+    script(src='credCheck.js')

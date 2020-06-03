@@ -36,7 +36,6 @@ let Person = mongoose.model("User_Information", personSchema);
 
 exports.api = (req, res) => {
   Person.find((err, person) => {
-    console.log(person);
     res.json(person);
   });
 };
