@@ -5,9 +5,18 @@ fetch(url)
   .then((data) => {
     //below is how to get total of people in database
     console.log(data.length);
+
+    let red = 0;
+    let blue = 0;
     let index;
     for (index = 0; index < data.length; index++) {
       console.log(data[index].wyrQuestion1);
+      if (data[index].wyrQuestion1 === "3 Feet") {
+        red = red + 30;
+      }
+      if (data[index].wyrQuestion1 === "3 Feet") {
+        blue = blue + 30;
+      }
     }
     // console.log(data);
     // document.getElementById(
