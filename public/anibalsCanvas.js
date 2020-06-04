@@ -19,6 +19,16 @@ fetch(url)
 
     let line = 0;
     console.log(data.length);
+    
+    let allUsers = data.length;
+    let userResponseOne = 0;
+    let userResponseTwo = 0;
+    let userResponseThree = 0;
+    let userResponseFour = 0;
+    let userResponseFive = 0;
+    let userResponseSix = 0;
+    let responsePercentage = 0;
+    let canvasFill = 0;
 
     let firstGraphReportOne = 0;
     let firstGraphReportTwo = 0;
@@ -31,34 +41,54 @@ fetch(url)
 
     let index;
 
+    const graphPercentage = (userResponse) => {
+      responsePercentage = 0;
+      canvasFill = 0;
+      responsePercentage = (userResponse/allUsers)*100;
+      canvasFill = 100/responsePercentage;
+      percentage = 300/canvasFill
+      userResponse = 0;
+      responsePercentage = 0;
+      canvasFill = 0;
+      
+      return percentage;
+    }
+
+
     const graphOneCheck = () => {
       if (data[index].wyrQuestion1 === "3 Feet") {
-        // if(barGraphReportOne <= 300){
-        firstGraphReportOne = firstGraphReportOne + 30;
+        userResponseOne ++;
+        firstGraphReportOne = graphPercentage(userResponseOne);
       }
       if (data[index].wyrQuestion1 === "3 Hands") {
-        firstGraphReportTwo = firstGraphReportTwo + 30;
+        userResponseTwo ++;
+        firstGraphReportTwo = graphPercentage(userResponseTwo);
       }
+  
     }
+
 
     const graphTwoCheck = () => {
       if (data[index].wyrQuestion2 === "Taste") {
-        secondGraphReportOne = secondGraphReportOne + 30;
+        userResponseThree ++;
+        secondGraphReportOne = graphPercentage(userResponseThree);
       }
       if (data[index].wyrQuestion2 === "Smell") {
-        secondGraphReportTwo = secondGraphReportTwo + 30;
+        userResponseFour ++;
+        secondGraphReportTwo = graphPercentage(userResponseFour);
       }
-      console.log(secondGraphReportOne+"/"+secondGraphReportTwo)
 
     }
 
     
     const graphThreeCheck = () => {
       if (data[index].wyrQuestion3 === "Burn") {
-          thirdGraphReportOne = thirdGraphReportOne + 30;
+        userResponseFive ++;
+        thirdGraphReportOne = graphPercentage(userResponseFive);
       }
       if (data[index].wyrQuestion3 === "Freeze") {
-        thirdGraphReportTwo = thirdGraphReportTwo + 30;
+        userResponseSix ++;
+        thirdGraphReportTwo = graphPercentage(userResponseSix);
       }
     }
 
